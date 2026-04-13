@@ -264,6 +264,7 @@ document.addEventListener("click", function() {
         </p>
 
         <a class="btn" onclick="showPopup()">Lihat Kejutan 🎁</a>
+    <a class="btn" onclick="openPasswordPopup()">Lihat Kejutan ke-2 🎁</a>
     </div>
 
 </div>
@@ -327,6 +328,31 @@ function showPopup() {
 
 function closePopup() {
     document.getElementById("popup").style.display = "none";
+}
+</script>
+
+    <script>
+function openPasswordPopup() {
+    document.getElementById("passwordPopup").style.display = "flex";
+}
+
+function checkPassword() {
+    const pass = document.getElementById("secretPass").value;
+
+    // GIMMICK PASSWORD — bisa kamu ganti
+    if (pass === "ayamgoreng") {
+        document.getElementById("passwordPopup").style.display = "none";
+        document.getElementById("videoPopup").style.display = "flex";
+        document.getElementById("birthdayVideo").play();
+    } else {
+        alert("Password salah!\nClue: bukan ayam suwir, tapi masih satu keluarga 😆");
+    }
+}
+
+function closeVideoPopup() {
+    document.getElementById("videoPopup").style.display = "none";
+    document.getElementById("birthdayVideo").pause();
+    document.getElementById("birthdayVideo").currentTime = 0;
 }
 </script>
 
