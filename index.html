@@ -158,7 +158,6 @@ for (let i = 0; i < 10; i++) {
     balloon.style.transform = `scale(${0.8 + Math.random()*0.6})`;
     document.body.appendChild(balloon);
 }
-</script>
 <!-- POPUP KEJUTAN -->
 <div id="popup" style="
     position: fixed;
@@ -175,11 +174,19 @@ for (let i = 0; i < 10; i++) {
         color: #ff6f91;
         padding: 25px;
         border-radius: 20px;
-        max-width: 80%;
+        max-width: 85%;
         text-align: center;
         font-size: 4vw;
         animation: fadeIn 0.6s ease-out;
     ">
+
+        <!-- GAMBAR GIF -->
+        <img src="frog-meme.gif" style="
+            width: 70%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        ">
+
         <p><b>
         Selamat ulang tahun!<br>
         Semoga panjang umur, sehat selalu,<br>
@@ -199,9 +206,17 @@ for (let i = 0; i < 10; i++) {
     </div>
 </div>
 
+<!-- SUARA POPUP -->
+<audio id="popupSound" src="Acumalaka sound effect.mp3"></audio>
+
 <script>
 function showPopup() {
     document.getElementById("popup").style.display = "flex";
+
+    // Mainkan efek suara
+    const sfx = document.getElementById("popupSound");
+    sfx.volume = 1.0;
+    sfx.play().catch(()=>{});
 }
 
 function closePopup() {
