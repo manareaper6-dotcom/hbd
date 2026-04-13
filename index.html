@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Happy Birthday!</title>
 
 <style>
@@ -17,36 +17,36 @@
     }
 
     .container {
-        padding: 40px 20px;
+        padding: 30px 15px;
         position: relative;
         z-index: 10;
     }
 
     h1 {
-        font-size: 48px;
-        margin-top: 40px;
+        font-size: 8vw;
+        margin-top: 20px;
         animation: fadeIn 2s ease-in-out;
     }
 
     h2 {
-        font-size: 24px;
-        margin-top: -10px;
+        font-size: 4.5vw;
         opacity: 0.9;
     }
 
     .card {
-        margin: 40px auto;
-        padding: 20px;
-        max-width: 500px;
+        margin: 25px auto;
+        padding: 18px;
+        max-width: 90%;
         background: rgba(255, 255, 255, 0.2);
         border-radius: 20px;
         backdrop-filter: blur(10px);
         animation: slideUp 1.5s ease-out;
+        font-size: 4vw;
     }
 
     .btn {
         display: inline-block;
-        margin-top: 20px;
+        margin-top: 15px;
         padding: 12px 25px;
         background: white;
         color: #ff6f91;
@@ -54,6 +54,7 @@
         font-weight: bold;
         text-decoration: none;
         transition: 0.3s;
+        font-size: 4vw;
     }
 
     .btn:hover {
@@ -70,15 +71,14 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* BALON JATUH */
     .balloon {
         position: fixed;
         top: -150px;
-        width: 60px;
-        height: 80px;
+        width: 50px;
+        height: 70px;
         background: rgba(255,255,255,0.8);
         border-radius: 50%;
-        animation: fall 6s linear infinite;
+        animation: fall 7s linear infinite;
         z-index: 1;
     }
 
@@ -87,12 +87,10 @@
         to { transform: translateY(120vh); }
     }
 
-    /* CONFETTI */
     .confetti {
         position: fixed;
-        width: 10px;
-        height: 10px;
-        background: white;
+        width: 8px;
+        height: 8px;
         top: -10px;
         animation: confettiFall 4s linear infinite;
         z-index: 2;
@@ -107,57 +105,31 @@
 
 <body>
 
-<!-- MUSIK AUTOPLAY -->
-<audio id="bgm" src="5426.mp3" autoplay loop></audio>
+<!-- MUSIK BACKGROUND -->
+<audio id="bgm" src="5426.mp3" autoplay loop muted></audio>
+
 <script>
 document.addEventListener("click", function() {
     const bgm = document.getElementById("bgm");
-    if (bgm) {
-        bgm.muted = false;
-        bgm.play().catch(()=>{});
-    }
+    bgm.muted = false;
+    bgm.play().catch(()=>{});
 }, { once: true });
 </script>
+
 <div class="container">
     <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
     <h2>Hari spesialmu akhirnya tiba</h2>
 
     <div class="card">
         <p>
-    "Semoga panjang umur, sehat selalu, dan semua impianmu menjadi kenyataan.  
-    Kamu adalah orang yang luar biasa, dan hari ini adalah hari untuk merayakan (agak telat sih)"
+            "Semoga panjang umur, sehat selalu, dan semua impianmu menjadi kenyataan.  
+            Kamu adalah orang yang luar biasa, dan hari ini adalah hari untuk merayakan (agak telat sih)"
         </p>
 
         <a class="btn" onclick="showPopup()">Lihat Kejutan 🎁</a>
     </div>
-
-    <div id="surprise" class="card">
-        <h2>🎁 Kejutan untukmu</h2>
-        <p>Terima kasih sudah menjadi bagian penting dalam hidup ini.</p>
-    </div>
 </div>
 
-<script>
-/* Generate Confetti */
-for (let i = 0; i < 80; i++) {
-    let conf = document.createElement("div");
-    conf.classList.add("confetti");
-    conf.style.left = Math.random() * 100 + "vw";
-    conf.style.animationDelay = Math.random() * 4 + "s";
-    conf.style.background = `hsl(${Math.random()*360}, 80%, 70%)`;
-    document.body.appendChild(conf);
-}
-
-/* Generate Balloons */
-for (let i = 0; i < 10; i++) {
-    let balloon = document.createElement("div");
-    balloon.classList.add("balloon");
-    balloon.style.left = Math.random() * 100 + "vw";
-    balloon.style.background = `hsl(${Math.random()*360}, 90%, 75%)`;
-    balloon.style.animationDelay = Math.random() * 5 + "s";
-    balloon.style.transform = `scale(${0.8 + Math.random()*0.6})`;
-    document.body.appendChild(balloon);
-}
 <!-- POPUP KEJUTAN -->
 <div id="popup" style="
     position: fixed;
@@ -180,7 +152,6 @@ for (let i = 0; i < 10; i++) {
         animation: fadeIn 0.6s ease-out;
     ">
 
-        <!-- GAMBAR GIF -->
         <img src="frog-meme.gif" style="
             width: 70%;
             border-radius: 15px;
@@ -207,13 +178,12 @@ for (let i = 0; i < 10; i++) {
 </div>
 
 <!-- SUARA POPUP -->
-<audio id="popupSound" src="Acumalaka sound effect.mp3"></audio>
+<audio id="popupSound" src="acumalaka-sound-effect.mp3"></audio>
 
 <script>
 function showPopup() {
     document.getElementById("popup").style.display = "flex";
 
-    // Mainkan efek suara
     const sfx = document.getElementById("popupSound");
     sfx.volume = 1.0;
     sfx.play().catch(()=>{});
@@ -223,5 +193,27 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 </script>
+
+<script>
+for (let i = 0; i < 50; i++) {
+    let conf = document.createElement("div");
+    conf.classList.add("confetti");
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.animationDelay = Math.random() * 4 + "s";
+    conf.style.background = `hsl(${Math.random()*360}, 80%, 70%)`;
+    document.body.appendChild(conf);
+}
+
+for (let i = 0; i < 7; i++) {
+    let balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.background = `hsl(${Math.random()*360}, 90%, 75%)`;
+    balloon.style.animationDelay = Math.random() * 5 + "s";
+    balloon.style.transform = `scale(${0.7 + Math.random()*0.6})`;
+    document.body.appendChild(balloon);
+}
+</script>
+
 </body>
 </html>
