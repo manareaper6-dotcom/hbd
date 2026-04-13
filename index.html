@@ -1,6 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <style>
+/* --- Soft Aura Glow Background --- */
+.header-glow {
+    position: relative;
+    padding: 60px 20px 40px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.35), rgba(255,255,255,0) 70%);
+}
+
+/* --- Glow Title --- */
+.header-glow h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.7), 0 0 24px rgba(255,255,255,0.4);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 10px rgba(255,255,255,0.6); }
+    50% { text-shadow: 0 0 20px rgba(255,255,255,0.9); }
+    100% { text-shadow: 0 0 10px rgba(255,255,255,0.6); }
+}
+
+/* --- Shiny Divider Line --- */
+.shiny-divider {
+    width: 80%;
+    height: 2px;
+    margin: 20px auto 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+}
+
+/* --- Floating Glow Particles --- */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(20px) scale(0.6); opacity: 0; }
+    30% { opacity: 1; }
+    100% { transform: translateY(-120px) scale(1); opacity: 0; }
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Happy Birthday!</title>
@@ -148,13 +207,18 @@ document.addEventListener("click", function() {
 }, { once: true });
 </script>
 
-<!-- AURA LEMBUT DI BELAKANG JUDUL -->
-    <div class="aura"></div>
+<div class="header-glow">
+    <div class="particles">
+        <span style="left:10%; animation-delay:0s;"></span>
+        <span style="left:30%; animation-delay:1s;"></span>
+        <span style="left:50%; animation-delay:2s;"></span>
+        <span style="left:70%; animation-delay:0.5s;"></span>
+        <span style="left:90%; animation-delay:1.5s;"></span>
+    </div>
 
-    <!-- JUDUL DENGAN GLOW -->
-    <h1 class="glow-title">Selamat Ulang Tahun, Alis Setriyani</h1>
-
-    <div class="card">
+    <h1>Selamat Ulang Tahun, Alis!</h1>
+    <div class="shiny-divider"></div>
+</div>
         <p>
             Selamat ulang tahun, Alis Setriyani.<br><br>
 
