@@ -6,6 +6,37 @@
 <title>Happy Birthday!</title>
 
 <style>
+.glow-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.7),
+                 0 0 20px rgba(255,255,255,0.5),
+                 0 0 30px rgba(255,200,200,0.4);
+    margin-top: 60px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+.aura {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(255,200,220,0.6), rgba(255,150,180,0.2), transparent);
+    filter: blur(45px);
+    z-index: 0;
+    animation: auraMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes auraMove {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(25px); }
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -117,29 +148,36 @@ document.addEventListener("click", function() {
 }, { once: true });
 </script>
 
-<div class="card">
-    <p>
-        Selamat ulang tahun, Alis Setriyani.<br><br>
+<!-- AURA LEMBUT DI BELAKANG JUDUL -->
+    <div class="aura"></div>
 
-        Di hari yang berarti ini (udah lewat si), aku berharap kamu benar‑benar merasakan betapa berharganya dirimu. 
-        Kamu sudah melalui banyak hal, tumbuh dari setiap pengalaman, dan tetap berdiri dengan hati yang kuat. 
-        Itu sesuatu yang patut kamu banggakan.<br><br>
+    <!-- JUDUL DENGAN GLOW -->
+    <h1 class="glow-title">Selamat Ulang Tahun, Alis Setriyani</h1>
 
-        Semoga di usia yang baru ini, kamu diberi kesehatan yang cukup, ketenangan yang kamu butuhkan, dan kekuatan 
-        untuk menghadapi apa pun yang datang di depan. Semoga setiap langkahmu dipenuhi kejelasan, setiap keputusanmu 
-        membawa kebaikan, dan setiap harapan yang kamu simpan perlahan menjadi nyata.<br><br>
+    <div class="card">
+        <p>
+            Selamat ulang tahun, Alis Setriyani.<br><br>
 
-        Aku berdoa agar hidupmu makin lembut, makin damai, dan semakin selaras dengan apa yang kamu cari. 
-        Semoga kamu selalu dikelilingi orang‑orang yang tulus, yang hargain kamu apa adanya, dan yang membuatmu 
-        merasa aman untuk jadi diri sendiri.<br><br>
+            Di hari yang berarti ini (udah lewat si), aku berharap kamu benar‑benar merasakan betapa berharganya dirimu. 
+            Kamu sudah melalui banyak hal, tumbuh dari setiap pengalaman, dan tetap berdiri dengan hati yang kuat. 
+            Itu sesuatu yang patut kamu banggakan.<br><br>
 
-        Semoga tahun ini membawa kamu pada versi hidup yang lebih baik—lebih matang, lebih tenang, dan lebih penuh cahaya.<br><br>
+            Semoga di usia yang baru ini, kamu diberi kesehatan yang cukup, ketenangan yang kamu butuhkan, dan kekuatan 
+            untuk menghadapi apa pun yang datang di depan. Semoga setiap langkahmu dipenuhi kejelasan, setiap keputusanmu 
+            membawa kebaikan, dan setiap harapan yang kamu simpan perlahan menjadi nyata.<br><br>
 
-        Selamat ulang tahun. Semoga kebahagiaan selalu menemukan jalan menuju kamu.
-    </p>
+            Aku berdoa agar hidupmu makin lembut, makin damai, dan semakin selaras dengan apa yang kamu cari. 
+            Semoga kamu selalu dikelilingi orang‑orang yang tulus, yang hargain kamu apa adanya, dan yang membuatmu 
+            merasa aman untuk jadi diri sendiri.<br><br>
 
-    <a class="btn" onclick="showPopup()">Lihat Kejutan 🎁</a>
-</div>
+            Semoga tahun ini membawa kamu pada versi hidup yang lebih baik—lebih matang, lebih tenang, dan lebih penuh cahaya.<br><br>
+
+            Selamat ulang tahun. Semoga kebahagiaan selalu menemukan jalan menuju kamu.
+        </p>
+
+        <a class="btn" onclick="showPopup()">Lihat Kejutan 🎁</a>
+    </div>
+
 </div>
 
 <!-- POPUP KEJUTAN -->
