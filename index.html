@@ -336,7 +336,7 @@ document.addEventListener("click", function() {
         max-width: 90%;
         text-align: center;
     ">
-        <p>Masukkan password dulu 😎</p>
+        <p>Masukkan password</p>
         <input id="secretPass" type="password" placeholder="password..." style="
             padding: 10px;
             border-radius: 8px;
@@ -421,12 +421,12 @@ function checkPassword() {
     const pass = document.getElementById("secretPass").value;
 
     // GIMMICK PASSWORD — bisa kamu ganti
-    if (pass === "ayamgoreng") {
+    if (pass === "september19") {
         document.getElementById("passwordPopup").style.display = "none";
         document.getElementById("videoPopup").style.display = "flex";
         document.getElementById("birthdayVideo").play();
     } else {
-        alert("Password salah!\nClue: bukan ayam suwir, tapi masih satu keluarga 😆");
+        alert("Password salah!\nClue: Tanya Atmin");
     }
 }
 
