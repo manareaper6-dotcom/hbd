@@ -218,6 +218,20 @@ body {
     color: #f5f5f5;
     letter-spacing: 0.2px;
 }
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+    
 </style>
 
 <!-- MUSIK BACKGROUND -->
@@ -422,6 +436,7 @@ function closePasswordPopup() {
 
 function checkPassword() {
     const pass = document.getElementById("secretPass").value;
+    const popup = document.getElementById("passwordPopup");
 
     // GIMMICK PASSWORD — bisa kamu ganti
     if (pass === "september19") {
@@ -429,6 +444,11 @@ function checkPassword() {
         document.getElementById("videoPopup").style.display = "flex";
         document.getElementById("birthdayVideo").play();
     } else {
+
+        // animasi shake
+        popup.classList.add("shake");
+        setTimeout(() => popup.classList.remove("shake"), 500);
+
         alert("Password salah!\nClue: Tanya Atmin");
     }
 }
