@@ -124,11 +124,11 @@ document.addEventListener("click", function() {
 
     <div class="card">
         <p>
-            Semoga panjang umur, sehat selalu, dan semua impianmu menjadi kenyataan.  
-            Kamu adalah orang yang luar biasa, dan hari ini adalah hari untuk merayakanmu.
+    "Semoga panjang umur, sehat selalu, dan semua impianmu menjadi kenyataan.  
+    Kamu adalah orang yang luar biasa, dan hari ini adalah hari untuk merayakan (agak telat sih)"
         </p>
 
-        <a class="btn" href="#surprise">Lihat Kejutan 🎁</a>
+        <a class="btn" onclick="showPopup()">Lihat Kejutan 🎁</a>
     </div>
 
     <div id="surprise" class="card">
@@ -159,6 +159,54 @@ for (let i = 0; i < 10; i++) {
     document.body.appendChild(balloon);
 }
 </script>
+<!-- POPUP KEJUTAN -->
+<div id="popup" style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+">
+    <div style="
+        background: white;
+        color: #ff6f91;
+        padding: 25px;
+        border-radius: 20px;
+        max-width: 80%;
+        text-align: center;
+        font-size: 4vw;
+        animation: fadeIn 0.6s ease-out;
+    ">
+        <p><b>
+        Selamat ulang tahun!<br>
+        Semoga panjang umur, sehat selalu,<br>
+        dan semoga kamu tetap kuat menghadapi kenyataan…<br><br>
+        bahwa umur nambah, tapi tinggi badan tetap.
+        </b></p>
 
+        <button onclick="closePopup()" style="
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff6f91;
+            color: white;
+            border-radius: 10px;
+            font-size: 4vw;
+        ">Tutup</button>
+    </div>
+</div>
+
+<script>
+function showPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
 </body>
 </html>
