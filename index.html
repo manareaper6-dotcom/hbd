@@ -1,12 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Video</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: 'Arial', sans-serif;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        padding: 40px 20px;
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-top: 40px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: -10px;
+        opacity: 0.9;
+    }
+
+    .card {
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        animation: slideUp 1.5s ease-out;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: white;
+        color: #ff6f91;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #ffe3ec;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BALON JATUH */
+    .balloon {
+        position: fixed;
+        top: -150px;
+        width: 60px;
+        height: 80px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        animation: fall 6s linear infinite;
+        z-index: 1;
+    }
+
+    @keyframes fall {
+        from { transform: translateY(-200px); }
+        to { transform: translateY(120vh); }
+    }
+
+    /* CONFETTI */
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: white;
+        top: -10px;
+        animation: confettiFall 4s linear infinite;
+        z-index: 2;
+    }
+
+    @keyframes confettiFall {
+        from { transform: translateY(-20px) rotate(0deg); }
+        to { transform: translateY(120vh) rotate(360deg); }
+    }
+</style>
 </head>
-<body style="margin:0; background:black;">
-  <video playsinline style="width:100%; height:auto;">
-    <source src="VID_20260413_024743.mp4" type="video/mp4">
-  </video>
+
+<body>
+
+<!-- MUSIK AUTOPLAY -->
+<audio id="bgm" src="5426.mp3" autoplay loop></audio>
+
+<div class="container">
+    <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
+    <h2>Hari spesialmu akhirnya tiba</h2>
+
+    <div class="card">
+        <p>
+            Semoga panjang umur, sehat selalu, dan semua impianmu menjadi kenyataan.  
+            Kamu adalah orang yang luar biasa, dan hari ini adalah hari untuk merayakanmu.
+        </p>
+
+        <a class="btn" href="#surprise">Lihat Kejutan 🎁</a>
+    </div>
+
+    <div id="surprise" class="card">
+        <h2>🎁 Kejutan untukmu</h2>
+        <p>Terima kasih sudah menjadi bagian penting dalam hidup ini.</p>
+    </div>
+</div>
+
+<script>
+/* Generate Confetti */
+for (let i = 0; i < 80; i++) {
+    let conf = document.createElement("div");
+    conf.classList.add("confetti");
+    conf.style.left = Math.random() * 100 + "vw";
+    conf.style.animationDelay = Math.random() * 4 + "s";
+    conf.style.background = `hsl(${Math.random()*360}, 80%, 70%)`;
+    document.body.appendChild(conf);
+}
+
+/* Generate Balloons */
+for (let i = 0; i < 10; i++) {
+    let balloon = document.createElement("div");
+    balloon.classList.add("balloon");
+    balloon.style.left = Math.random() * 100 + "vw";
+    balloon.style.background = `hsl(${Math.random()*360}, 90%, 75%)`;
+    balloon.style.animationDelay = Math.random() * 5 + "s";
+    balloon.style.transform = `scale(${0.8 + Math.random()*0.6})`;
+    document.body.appendChild(balloon);
+}
+</script>
+
 </body>
 </html>
