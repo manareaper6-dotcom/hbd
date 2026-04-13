@@ -109,7 +109,15 @@
 
 <!-- MUSIK AUTOPLAY -->
 <audio id="bgm" src="5426.mp3" autoplay loop></audio>
-
+<script>
+document.addEventListener("click", function() {
+    const bgm = document.getElementById("bgm");
+    if (bgm) {
+        bgm.muted = false;
+        bgm.play().catch(()=>{});
+    }
+}, { once: true });
+</script>
 <div class="container">
     <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
     <h2>Hari spesialmu akhirnya tiba</h2>
